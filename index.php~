@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>jsonp.org: Public JSONP Wrapper Service</title>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-18775517-1']);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <style type="text/css">
+      html, body {
+        font-family: Arial;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to jsonp.org: Public JSONP Wrapper Service</h1>
+    
+    <p>    
+    Proxy Usage:
+    <pre>
+    http://api.jsonp.org/p/&lt;callback&gt;/&lt;url&gt;
+    </pre>
+    </p>
+    <p>
+    Rewrapper Usage:
+    <pre>
+    http://api.jsonp.org/r/&lt;callback&gt;/&lt;url&gt;
+    </pre>
+    </p>
+
+    <p>
+    jQuery <a href="http://jsonp.org/jquery.jsonp.js">jsonp.org plugin</a>:
+    <pre>
+    $.jsonp("http://www.google.com/robots.txt", function(data) {
+      alert("Google's robots.txt: " + data);
+    });
+    </pre>
+    </p>
+
+    <p>
+    I created this because I was unable to get several urls working
+    with jsonpwrapper.com or YQL. There's absolutely no error checking and I'm constantly changing the "Api" and URL structure, and obviously the jQuery plugin as well. It is intended that this will be stabilized in the future, at which point this message will be removed.</p>
+  
+  </body>
+</html>

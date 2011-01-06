@@ -39,27 +39,18 @@ class Handler(webapp.RequestHandler):
           data = match.group(2)
           status = "ok"
 
-    except urllib2.URLError as e:
+    except:
       status = "bad"
-      data = "Bad URL (URLError): %s" % e
-
-    except DownloadError as e:
-      status = "bad"
-      data = "Bad URL (DownloadError): %s" % e
+      data = "Bad URL: %s" % e
 
     response = '%s({ "status": "%s", "data": "%s" })' % (callback, status, data)
 
     self.response.out.write(response)
     return
 
-class Info(webapp.RequestHandler):
-  def get(self):
-    self.response.redirect("http://github.com/colemickens/jsonp.org/README.md")
-
 application = webapp.WSGIApplication([
   ("/r/.*", Handler),
   ("/p/.*", Handler),
-  ("/.*", Info),
   ], debug=True
  )
 

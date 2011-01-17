@@ -3,6 +3,8 @@
 jsonpReqCount = 0;
 
 jsonpInternal = function(url, success_cb, rewrap) {
+  var data;
+
   function success() {
       success_cb.call(this, data);
   }

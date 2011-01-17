@@ -1,6 +1,7 @@
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
-import re, urllib, urllib2, json
+import re, urllib, urllib2
+import django.utils.simplejson as json
 from google.appengine.api.urlfetch import DownloadError
 from validate_jsonp import is_valid_jsonp_callback_value
 

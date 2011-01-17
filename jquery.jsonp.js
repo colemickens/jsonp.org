@@ -33,9 +33,9 @@ jsonpInternal = function(url, success_cb, rewrap) {
   var head = document.getElementsByTagName("head")[0] || document.documentElement;
     
   if(rewrap == true) {
-    jsonpScript.src = "http://api.jsonp.org/r/" + jsonpCB + "/" + url;
+    jsonpScript.src = "http://api.jsonp.org/r/" + jsonpCB + "/" + encodeURIComponent(url);
   } else {
-    jsonpScript.src = "http://api.jsonp.org/p/" + jsonpCB + "/" + url;
+    jsonpScript.src = "http://api.jsonp.org/p/" + jsonpCB + "/" + encodeURIComponent(url);
   }
   head.insertBefore(jsonpScript, head.firstChild);
   return undefined;

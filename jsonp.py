@@ -1,6 +1,6 @@
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
-import re, urllib, urllib2
+import re, urllib, urllib2, json
 from google.appengine.api.urlfetch import DownloadError
 from validate_jsonp import is_valid_jsonp_callback_value
 
@@ -43,7 +43,9 @@ class Handler(webapp.RequestHandler):
       status = "bad"
       data = "Bad URL: %s" % e
 
-    response = '%s({ "status": "%s", "data": "%s" })' % (callback, status, data)
+    jsondata = json.dumps( { 'status':status, 'data':data } );
+
+    response = '%s(%s)' % (callback, jsondata)
 
     self.response.out.write(response)
     return
